@@ -1,11 +1,11 @@
 node('master') {
-    stage ("Get git repository") {
-        git(
-            branch: "master",
-            url: 'http://gitlab.wapsi.tech/tpitz/gatling_terry.git',
-            credentialsId: 'LDAP_Jenkins'
-        )
-    }
+    // stage ("Get git repository") {
+    //     git(
+    //         branch: "master",
+    //         url: 'http://gitlab.wapsi.tech/tpitz/gatling_terry.git',
+    //         credentialsId: 'LDAP_Jenkins'
+    //     )
+    // }
 
     try {
         stage("Execute test") {
