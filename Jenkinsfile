@@ -7,15 +7,11 @@ node{
         )
     }
 
-    try {
         stage("Execute test") {
             docker.image('maven').inside('') {
                 sh "mvn clean gatling:test -Dgatling.simulationClass=com.wapsi.simulations.Nominal"
             }
-        }
-    } catch (e) {
-        throw e
-    } finally {
+        
         gatlingArchive()
         sh('mkdir report')
         sh('cp -R target/gatling/$(cat target/gatling/lastRun.txt)/* ./report/')
@@ -32,5 +28,5 @@ node{
         )
         junit 'report/js/assertions.xml'
         cleanWs()
-    }
+        }
 }
