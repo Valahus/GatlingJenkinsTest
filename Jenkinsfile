@@ -1,11 +1,5 @@
 node{
-    stage ("Get git repository") {
-        git(
-            branch: "master",
-            url: 'http://gitlab.wapsi.tech/tpitz/gatling_terry.git',
-            credentialsId: 'LDAP_Jenkins'
-        )
-    }
+
 
         stage("Execute test") {
             docker.image('maven').inside('') {
