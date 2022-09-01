@@ -1,4 +1,6 @@
-node('master') {
+pipeline {
+  agent any
+  stages {
     stage ("Get git repository") {
         git(
             url: 'http://gitlab.wapsi.tech/tpitz/gatling_terry.git',
@@ -32,4 +34,5 @@ node('master') {
         junit 'report/js/assertions.xml'
         cleanWs()
     }
+}
 }
